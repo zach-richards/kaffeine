@@ -2,10 +2,7 @@
 
 #include <QApplication>
 
-QApplication initializeApp(int argc, char *argv[]) {
-    QApplication app(argc, argv);
+void initializeApp(QApplication &app){
     app.setApplicationName("Kaffeine");
     app.setOrganizationName("KDE");
-
-    return app;
 }
