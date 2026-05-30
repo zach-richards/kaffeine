@@ -1,13 +1,10 @@
 // main.cpp
 
-#include <KStatusNotifierItem>
+#include "src/tray_icon/tray_icon.cpp"
 
 int main()
 {
-    KStatusNotifierItem item;
-    item.setIconByName("face-smile");
-    item.setToolTipTitle("Hello World");
-    item.setToolTipSubTitle("This is a tooltip from KStatusNotifierItem.");
-    item.setStatus(KStatusNotifierItem::Active);
+    TrayIcon trayIcon;
+
     return 0;
 }

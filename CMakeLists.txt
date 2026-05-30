@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 3.23)
 
-project(MyProjectName)
+project(Kaffeine VERSION 0.1 LANGUAGES CXX)
 
-add_executable(MyProgram)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(KF6StatusNotifierItem REQUIRED)
 
-find_package(KF6 REQUIRED COMPONENTS StatusNotifierItem)
-target_link_libraries(mytarget PRIVATE KF6::StatusNotifierItem)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-target_sources(MyProgram
-  PRIVATE
-    main.qt_wrap_cpp()
+add_executable(Kaffeine
+    main.cpp
+)
+
+target_link_libraries(Kaffeine PRIVATE
+    Qt6::Widgets
+    KF6::StatusNotifierItem
 )
