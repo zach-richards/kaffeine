@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/zach/Projects/kaffeine/main.cpp" "CMakeFiles/Kaffeine.dir/main.cpp.o" "gcc" "CMakeFiles/Kaffeine.dir/main.cpp.o.d"
+  "/home/zach/Projects/kaffeine/src/tray_icon/tray_icon.cpp" "CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.o" "gcc" "CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.o.d"
   "" "Kaffeine" "gcc" "CMakeFiles/Kaffeine.dir/link.d"
   )
 

@@ -1,6 +1,6 @@
 // tray_icon.cpp
 
-#include <KStatusNotifierItem/KStatusNotifierItem.h>
+#include <KStatusNotifierItem>
 
 class TrayIcon {
 public:
