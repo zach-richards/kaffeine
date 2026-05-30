@@ -2,8 +2,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/Kaffeine.dir/link.d"
   "CMakeFiles/Kaffeine.dir/main.cpp.o"
   "CMakeFiles/Kaffeine.dir/main.cpp.o.d"
-  "CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.o"
-  "CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.o.d"
+  "CMakeFiles/Kaffeine.dir/src/app/app.cpp.o"
+  "CMakeFiles/Kaffeine.dir/src/app/app.cpp.o.d"
+  "CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o"
+  "CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o.d"
   "Kaffeine"
   "Kaffeine.pdb"
 )

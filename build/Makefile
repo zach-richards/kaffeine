@@ -153,29 +153,53 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-src/tray_icon/tray_icon.o: src/tray_icon/tray_icon.cpp.o
-.PHONY : src/tray_icon/tray_icon.o
+src/app/app.o: src/app/app.cpp.o
+.PHONY : src/app/app.o
 
 # target to build an object file
-src/tray_icon/tray_icon.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.o
-.PHONY : src/tray_icon/tray_icon.cpp.o
+src/app/app.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/app/app.cpp.o
+.PHONY : src/app/app.cpp.o
 
-src/tray_icon/tray_icon.i: src/tray_icon/tray_icon.cpp.i
-.PHONY : src/tray_icon/tray_icon.i
+src/app/app.i: src/app/app.cpp.i
+.PHONY : src/app/app.i
 
 # target to preprocess a source file
-src/tray_icon/tray_icon.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.i
-.PHONY : src/tray_icon/tray_icon.cpp.i
+src/app/app.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/app/app.cpp.i
+.PHONY : src/app/app.cpp.i
 
-src/tray_icon/tray_icon.s: src/tray_icon/tray_icon.cpp.s
-.PHONY : src/tray_icon/tray_icon.s
+src/app/app.s: src/app/app.cpp.s
+.PHONY : src/app/app.s
 
 # target to generate assembly for a file
-src/tray_icon/tray_icon.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/tray_icon/tray_icon.cpp.s
-.PHONY : src/tray_icon/tray_icon.cpp.s
+src/app/app.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/app/app.cpp.s
+.PHONY : src/app/app.cpp.s
+
+src/app/tray_icon.o: src/app/tray_icon.cpp.o
+.PHONY : src/app/tray_icon.o
+
+# target to build an object file
+src/app/tray_icon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o
+.PHONY : src/app/tray_icon.cpp.o
+
+src/app/tray_icon.i: src/app/tray_icon.cpp.i
+.PHONY : src/app/tray_icon.i
+
+# target to preprocess a source file
+src/app/tray_icon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.i
+.PHONY : src/app/tray_icon.cpp.i
+
+src/app/tray_icon.s: src/app/tray_icon.cpp.s
+.PHONY : src/app/tray_icon.s
+
+# target to generate assembly for a file
+src/app/tray_icon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s
+.PHONY : src/app/tray_icon.cpp.s
 
 # Help Target
 help:
@@ -189,9 +213,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... src/tray_icon/tray_icon.o"
-	@echo "... src/tray_icon/tray_icon.i"
-	@echo "... src/tray_icon/tray_icon.s"
+	@echo "... src/app/app.o"
+	@echo "... src/app/app.i"
+	@echo "... src/app/app.s"
+	@echo "... src/app/tray_icon.o"
+	@echo "... src/app/tray_icon.i"
+	@echo "... src/app/tray_icon.s"
 .PHONY : help
 
 

@@ -12,7 +12,8 @@ find_package(KF6StatusNotifierItem REQUIRED)
 
 add_executable(Kaffeine
     main.cpp
-    src/tray_icon/tray_icon.cpp
+    src/app/app.cpp
+    src/app/tray_icon.cpp
 )
 
 target_link_libraries(Kaffeine PRIVATE
