@@ -1,9 +1,9 @@
-# messageHandler.cpp
+// warningHandler.cpp
 
 #include <QMessageLogContext>
 #include <QString>
 
-void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+void warningHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
     if (msg.contains("Empty key passed")) return;
     switch (type) {
         case QtDebugMsg:    fprintf(stderr, "Debug: %s\n", msg.toLocal8Bit().constData()); break;

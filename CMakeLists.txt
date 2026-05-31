@@ -14,7 +14,7 @@ add_executable(Kaffeine
     main.cpp
     src/app/app.cpp
     src/app/trayIcon.cpp
-    src/messageHandler.cpp
+    src/warningHandler.cpp
 )
 
 target_link_libraries(Kaffeine PRIVATE
