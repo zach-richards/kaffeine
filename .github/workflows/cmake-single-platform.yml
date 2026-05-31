@@ -33,9 +33,9 @@ jobs:
           qt6-base-dev \
           qt6-tools-dev \
           extra-cmake-modules \
-          kf6-kcoreaddons-dev \
-          kf6-i18n-dev \
-          kf6-widgetsaddons-dev
+          kf6-kcoreaddons-devel \
+          kf6-i18n-devel \
+          kf6-kwidgetsaddons-devel
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
