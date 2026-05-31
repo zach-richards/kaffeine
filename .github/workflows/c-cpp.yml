@@ -26,7 +26,8 @@ jobs:
           extra-cmake-modules \
           kf6-kcoreaddons-devel \
           kf6-ki18n-devel \
-          kf6-kwidgetsaddons-devel
+          kf6-kwidgetsaddons-devel \
+          kf6-kstatusnotifieritem-devel
 
     - name: Configure
       run: cmake -B build -S .
