@@ -69,13 +69,19 @@ include CMakeFiles/Kaffeine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Kaffeine.dir/flags.make
 
+.qt/rcc/qrc_assets.cpp: /home/zach/Projects/kaffeine/assets/coffee_dark_on.png
+.qt/rcc/qrc_assets.cpp: .qt/rcc/assets.qrc
+.qt/rcc/qrc_assets.cpp: /usr/lib64/qt6/libexec/rcc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running rcc for resource assets"
+	/usr/lib64/qt6/libexec/rcc --output /home/zach/Projects/kaffeine/build/.qt/rcc/qrc_assets.cpp --name assets /home/zach/Projects/kaffeine/build/.qt/rcc/assets.qrc
+
 CMakeFiles/Kaffeine.dir/codegen:
 .PHONY : CMakeFiles/Kaffeine.dir/codegen
 
 CMakeFiles/Kaffeine.dir/main.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
 CMakeFiles/Kaffeine.dir/main.cpp.o: /home/zach/Projects/kaffeine/main.cpp
 CMakeFiles/Kaffeine.dir/main.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Kaffeine.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Kaffeine.dir/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/main.cpp.o -MF CMakeFiles/Kaffeine.dir/main.cpp.o.d -o CMakeFiles/Kaffeine.dir/main.cpp.o -c /home/zach/Projects/kaffeine/main.cpp
 
 CMakeFiles/Kaffeine.dir/main.cpp.i: cmake_force
@@ -89,7 +95,7 @@ CMakeFiles/Kaffeine.dir/main.cpp.s: cmake_force
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o: /home/zach/Projects/kaffeine/src/app/app.cpp
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Kaffeine.dir/src/app/app.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Kaffeine.dir/src/app/app.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/src/app/app.cpp.o -MF CMakeFiles/Kaffeine.dir/src/app/app.cpp.o.d -o CMakeFiles/Kaffeine.dir/src/app/app.cpp.o -c /home/zach/Projects/kaffeine/src/app/app.cpp
 
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.i: cmake_force
@@ -103,7 +109,7 @@ CMakeFiles/Kaffeine.dir/src/app/app.cpp.s: cmake_force
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o: /home/zach/Projects/kaffeine/src/app/tray_icon.cpp
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o -MF CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o.d -o CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o -c /home/zach/Projects/kaffeine/src/app/tray_icon.cpp
 
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.i: cmake_force
@@ -114,11 +120,26 @@ CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/src/app/tray_icon.cpp -o CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s
 
+CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
+CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o: .qt/rcc/qrc_assets.cpp
+CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o -MF CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o.d -o CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o -c /home/zach/Projects/kaffeine/build/.qt/rcc/qrc_assets.cpp
+
+CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/build/.qt/rcc/qrc_assets.cpp > CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.i
+
+CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/build/.qt/rcc/qrc_assets.cpp -o CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.s
+
 # Object files for target Kaffeine
 Kaffeine_OBJECTS = \
 "CMakeFiles/Kaffeine.dir/main.cpp.o" \
 "CMakeFiles/Kaffeine.dir/src/app/app.cpp.o" \
-"CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o"
+"CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o" \
+"CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o"
 
 # External object files for target Kaffeine
 Kaffeine_EXTERNAL_OBJECTS =
@@ -126,6 +147,7 @@ Kaffeine_EXTERNAL_OBJECTS =
 Kaffeine: CMakeFiles/Kaffeine.dir/main.cpp.o
 Kaffeine: CMakeFiles/Kaffeine.dir/src/app/app.cpp.o
 Kaffeine: CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o
+Kaffeine: CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o
 Kaffeine: CMakeFiles/Kaffeine.dir/build.make
 Kaffeine: CMakeFiles/Kaffeine.dir/compiler_depend.ts
 Kaffeine: /usr/lib64/libKF6StatusNotifierItem.so.6.26.0
@@ -136,7 +158,7 @@ Kaffeine: /usr/lib64/libOpenGL.so
 Kaffeine: /usr/lib64/libQt6DBus.so.6.11.1
 Kaffeine: /usr/lib64/libQt6Core.so.6.11.1
 Kaffeine: CMakeFiles/Kaffeine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Kaffeine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Kaffeine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Kaffeine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -147,7 +169,7 @@ CMakeFiles/Kaffeine.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Kaffeine.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Kaffeine.dir/clean
 
-CMakeFiles/Kaffeine.dir/depend:
+CMakeFiles/Kaffeine.dir/depend: .qt/rcc/qrc_assets.cpp
 	cd /home/zach/Projects/kaffeine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zach/Projects/kaffeine /home/zach/Projects/kaffeine /home/zach/Projects/kaffeine/build /home/zach/Projects/kaffeine/build /home/zach/Projects/kaffeine/build/CMakeFiles/Kaffeine.dir/DependInfo.cmake "--color=$(COLOR)" Kaffeine
 .PHONY : CMakeFiles/Kaffeine.dir/depend
 

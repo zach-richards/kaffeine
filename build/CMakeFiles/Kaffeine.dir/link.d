@@ -5,6 +5,7 @@ Kaffeine: \
   CMakeFiles/Kaffeine.dir/main.cpp.o \
   CMakeFiles/Kaffeine.dir/src/app/app.cpp.o \
   CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o \
+  CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o \
   /usr/lib64/libKF6StatusNotifierItem.so.6.26.0 \
   /usr/lib64/libQt6Widgets.so.6.11.1 \
   /usr/lib64/libQt6Gui.so.6.11.1 \
@@ -93,6 +94,8 @@ CMakeFiles/Kaffeine.dir/main.cpp.o:
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o:
 
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o:
+
+CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o:
 
 /usr/lib64/libKF6StatusNotifierItem.so.6.26.0:
 

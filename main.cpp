@@ -12,5 +12,6 @@ int main() {
 
     TrayIcon trayIcon;
 
+    qSetMessagePattern("%{file}:%{line} - %{message}");
     return app.exec();
 }

@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+d0a61543c24af564fe7dd2f1490d7ae5 .qt/rcc/qrc_assets.cpp

@@ -1,6 +1,6 @@
 # Makefile
 
-make: build run
+all: build run
 
 build:
 	@echo "Building Kaffeine..."

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/zach/Projects/kaffeine/build/.qt/rcc/qrc_assets.cpp" "CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o" "gcc" "CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o.d"
   "/home/zach/Projects/kaffeine/main.cpp" "CMakeFiles/Kaffeine.dir/main.cpp.o" "gcc" "CMakeFiles/Kaffeine.dir/main.cpp.o.d"
   "/home/zach/Projects/kaffeine/src/app/app.cpp" "CMakeFiles/Kaffeine.dir/src/app/app.cpp.o" "gcc" "CMakeFiles/Kaffeine.dir/src/app/app.cpp.o.d"
   "/home/zach/Projects/kaffeine/src/app/tray_icon.cpp" "CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o" "gcc" "CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o.d"

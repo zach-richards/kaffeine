@@ -69,6 +69,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/lib64/cmake/Qt6Core/Qt6CoreConfigExtras.cmake"
   "/usr/lib64/cmake/Qt6Core/Qt6CoreConfigVersion.cmake"
   "/usr/lib64/cmake/Qt6Core/Qt6CoreConfigVersionImpl.cmake"
+  "/usr/lib64/cmake/Qt6Core/Qt6CoreConfigureFileTemplate.in"
   "/usr/lib64/cmake/Qt6Core/Qt6CoreDependencies.cmake"
   "/usr/lib64/cmake/Qt6Core/Qt6CoreMacros.cmake"
   "/usr/lib64/cmake/Qt6Core/Qt6CoreTargets-relwithdebinfo.cmake"
@@ -482,6 +483,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/4.3.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.3.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.3.0/CMakeCXXCompiler.cmake"
+  ".qt/rcc/assets.qrc"
   ".qt/QtDeploySupport.cmake"
   ".qt/QtDeployTargets.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
@@ -490,4 +492,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/Kaffeine.dir/DependInfo.cmake"
+  "CMakeFiles/Kaffeine_other_files.dir/DependInfo.cmake"
   )

@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  ".qt/rcc/qrc_assets.cpp"
   "CMakeFiles/Kaffeine.dir/link.d"
+  "CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o"
+  "CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o.d"
   "CMakeFiles/Kaffeine.dir/main.cpp.o"
   "CMakeFiles/Kaffeine.dir/main.cpp.o.d"
   "CMakeFiles/Kaffeine.dir/src/app/app.cpp.o"

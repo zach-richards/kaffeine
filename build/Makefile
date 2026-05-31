@@ -129,6 +129,43 @@ Kaffeine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/build
 .PHONY : Kaffeine/fast
 
+#=============================================================================
+# Target rules for targets named Kaffeine_other_files
+
+# Build rule for target.
+Kaffeine_other_files: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Kaffeine_other_files
+.PHONY : Kaffeine_other_files
+
+# fast build rule for target.
+Kaffeine_other_files/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine_other_files.dir/build.make CMakeFiles/Kaffeine_other_files.dir/build
+.PHONY : Kaffeine_other_files/fast
+
+build/.qt/rcc/qrc_assets.o: build/.qt/rcc/qrc_assets.cpp.o
+.PHONY : build/.qt/rcc/qrc_assets.o
+
+# target to build an object file
+build/.qt/rcc/qrc_assets.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.o
+.PHONY : build/.qt/rcc/qrc_assets.cpp.o
+
+build/.qt/rcc/qrc_assets.i: build/.qt/rcc/qrc_assets.cpp.i
+.PHONY : build/.qt/rcc/qrc_assets.i
+
+# target to preprocess a source file
+build/.qt/rcc/qrc_assets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.i
+.PHONY : build/.qt/rcc/qrc_assets.cpp.i
+
+build/.qt/rcc/qrc_assets.s: build/.qt/rcc/qrc_assets.cpp.s
+.PHONY : build/.qt/rcc/qrc_assets.s
+
+# target to generate assembly for a file
+build/.qt/rcc/qrc_assets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/build/.qt/rcc/qrc_assets.cpp.s
+.PHONY : build/.qt/rcc/qrc_assets.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -209,7 +246,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Kaffeine_other_files"
 	@echo "... Kaffeine"
+	@echo "... build/.qt/rcc/qrc_assets.o"
+	@echo "... build/.qt/rcc/qrc_assets.i"
+	@echo "... build/.qt/rcc/qrc_assets.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

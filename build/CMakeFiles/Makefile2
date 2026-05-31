@@ -76,6 +76,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/Kaffeine.dir/clean
+clean: CMakeFiles/Kaffeine_other_files.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -85,12 +86,12 @@ clean: CMakeFiles/Kaffeine.dir/clean
 CMakeFiles/Kaffeine.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=1,2,3,4 "Built target Kaffeine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Kaffeine"
 .PHONY : CMakeFiles/Kaffeine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Kaffeine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zach/Projects/kaffeine/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zach/Projects/kaffeine/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Kaffeine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zach/Projects/kaffeine/build/CMakeFiles 0
 .PHONY : CMakeFiles/Kaffeine.dir/rule
@@ -102,13 +103,45 @@ Kaffeine: CMakeFiles/Kaffeine.dir/rule
 # codegen rule for target.
 CMakeFiles/Kaffeine.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target Kaffeine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target Kaffeine"
 .PHONY : CMakeFiles/Kaffeine.dir/codegen
 
 # clean rule for target.
 CMakeFiles/Kaffeine.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine.dir/build.make CMakeFiles/Kaffeine.dir/clean
 .PHONY : CMakeFiles/Kaffeine.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Kaffeine_other_files.dir
+
+# All Build rule for target.
+CMakeFiles/Kaffeine_other_files.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine_other_files.dir/build.make CMakeFiles/Kaffeine_other_files.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine_other_files.dir/build.make CMakeFiles/Kaffeine_other_files.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num= "Built target Kaffeine_other_files"
+.PHONY : CMakeFiles/Kaffeine_other_files.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Kaffeine_other_files.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zach/Projects/kaffeine/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Kaffeine_other_files.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zach/Projects/kaffeine/build/CMakeFiles 0
+.PHONY : CMakeFiles/Kaffeine_other_files.dir/rule
+
+# Convenience name for target.
+Kaffeine_other_files: CMakeFiles/Kaffeine_other_files.dir/rule
+.PHONY : Kaffeine_other_files
+
+# codegen rule for target.
+CMakeFiles/Kaffeine_other_files.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine_other_files.dir/build.make CMakeFiles/Kaffeine_other_files.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num= "Finished codegen for target Kaffeine_other_files"
+.PHONY : CMakeFiles/Kaffeine_other_files.dir/codegen
+
+# clean rule for target.
+CMakeFiles/Kaffeine_other_files.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Kaffeine_other_files.dir/build.make CMakeFiles/Kaffeine_other_files.dir/clean
+.PHONY : CMakeFiles/Kaffeine_other_files.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

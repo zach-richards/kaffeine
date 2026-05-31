@@ -21,3 +21,9 @@ target_link_libraries(Kaffeine PRIVATE
     Qt6::Widgets
     KF6::StatusNotifierItem
 )
+
+qt_add_resources(Kaffeine "assets"
+    PREFIX "/"
+    FILES
+        assets/coffee_dark_on.png
+)

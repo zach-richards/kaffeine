@@ -334,6 +334,7 @@ CMakeFiles/Kaffeine.dir/main.cpp.o: /home/zach/Projects/kaffeine/main.cpp \
  /usr/include/qt6/QtCore/qalloc.h \
  /usr/include/qt6/QtGui/qguiapplication_platform.h \
  /home/zach/Projects/kaffeine/include/app/tray_icon.h \
+ /usr/include/qt6/QtGui/QPixmap \
  /usr/include/KF6/KStatusNotifierItem/KStatusNotifierItem \
  /usr/include/KF6/KStatusNotifierItem/kstatusnotifieritem.h \
  /usr/include/qt6/QtWidgets/QMenu /usr/include/qt6/QtWidgets/qmenu.h \

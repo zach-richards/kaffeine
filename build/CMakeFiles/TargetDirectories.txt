@@ -1,3 +1,4 @@
 /home/zach/Projects/kaffeine/build/CMakeFiles/Kaffeine.dir
+/home/zach/Projects/kaffeine/build/CMakeFiles/Kaffeine_other_files.dir
 /home/zach/Projects/kaffeine/build/CMakeFiles/edit_cache.dir
 /home/zach/Projects/kaffeine/build/CMakeFiles/rebuild_cache.dir
