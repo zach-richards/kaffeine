@@ -30,11 +30,11 @@ jobs:
         sudo dnf update
         sudo dnf install -y \
           cmake \
-          qt6-base-dev \
-          qt6-tools-dev \
+          qt6-qtbase-devel \
+          qt6-qttools-devel \
           extra-cmake-modules \
           kf6-kcoreaddons-devel \
-          kf6-i18n-devel \
+          kf6-ki18n-deve \
           kf6-kwidgetsaddons-devel
 
     - name: Configure CMake
