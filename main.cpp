@@ -1,7 +1,7 @@
 // main.cpp
 
-#include "src/app/app.cpp"
-#include "src/app/tray_icon.cpp"
+#include "include/app/app.h"
+#include "include/app/tray_icon.h"
 
 int main() {
     int argc = 0;

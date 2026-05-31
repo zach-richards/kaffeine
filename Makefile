@@ -8,6 +8,8 @@ build:
 	@cmake --build build
 	@echo "Build complete."
 
+rebuild: clean build
+
 run:
 	@echo "Running Kaffeine..."
 	@./build/Kaffeine

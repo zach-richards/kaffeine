@@ -76,43 +76,43 @@ CMakeFiles/Kaffeine.dir/main.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
 CMakeFiles/Kaffeine.dir/main.cpp.o: /home/zach/Projects/kaffeine/main.cpp
 CMakeFiles/Kaffeine.dir/main.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Kaffeine.dir/main.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/main.cpp.o -MF CMakeFiles/Kaffeine.dir/main.cpp.o.d -o CMakeFiles/Kaffeine.dir/main.cpp.o -c /home/zach/Projects/kaffeine/main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/main.cpp.o -MF CMakeFiles/Kaffeine.dir/main.cpp.o.d -o CMakeFiles/Kaffeine.dir/main.cpp.o -c /home/zach/Projects/kaffeine/main.cpp
 
 CMakeFiles/Kaffeine.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kaffeine.dir/main.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/main.cpp > CMakeFiles/Kaffeine.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/main.cpp > CMakeFiles/Kaffeine.dir/main.cpp.i
 
 CMakeFiles/Kaffeine.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kaffeine.dir/main.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/main.cpp -o CMakeFiles/Kaffeine.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/main.cpp -o CMakeFiles/Kaffeine.dir/main.cpp.s
 
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o: /home/zach/Projects/kaffeine/src/app/app.cpp
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Kaffeine.dir/src/app/app.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/src/app/app.cpp.o -MF CMakeFiles/Kaffeine.dir/src/app/app.cpp.o.d -o CMakeFiles/Kaffeine.dir/src/app/app.cpp.o -c /home/zach/Projects/kaffeine/src/app/app.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/src/app/app.cpp.o -MF CMakeFiles/Kaffeine.dir/src/app/app.cpp.o.d -o CMakeFiles/Kaffeine.dir/src/app/app.cpp.o -c /home/zach/Projects/kaffeine/src/app/app.cpp
 
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kaffeine.dir/src/app/app.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/src/app/app.cpp > CMakeFiles/Kaffeine.dir/src/app/app.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/src/app/app.cpp > CMakeFiles/Kaffeine.dir/src/app/app.cpp.i
 
 CMakeFiles/Kaffeine.dir/src/app/app.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kaffeine.dir/src/app/app.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/src/app/app.cpp -o CMakeFiles/Kaffeine.dir/src/app/app.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/src/app/app.cpp -o CMakeFiles/Kaffeine.dir/src/app/app.cpp.s
 
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o: CMakeFiles/Kaffeine.dir/flags.make
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o: /home/zach/Projects/kaffeine/src/app/tray_icon.cpp
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o: CMakeFiles/Kaffeine.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/zach/Projects/kaffeine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o -MF CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o.d -o CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o -c /home/zach/Projects/kaffeine/src/app/tray_icon.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o -MF CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o.d -o CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.o -c /home/zach/Projects/kaffeine/src/app/tray_icon.cpp
 
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/src/app/tray_icon.cpp > CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zach/Projects/kaffeine/src/app/tray_icon.cpp > CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.i
 
 CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/src/app/tray_icon.cpp -o CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zach/Projects/kaffeine/src/app/tray_icon.cpp -o CMakeFiles/Kaffeine.dir/src/app/tray_icon.cpp.s
 
 # Object files for target Kaffeine
 Kaffeine_OBJECTS = \
