@@ -35,6 +35,13 @@ jobs:
     - name: Build
       run: cmake --build build
 
+    - name: Test visual
+      run: |
+        sudo dnf install xorg-x11-server-Xvfb
+        Xvfb :99 -screen 0 1024x768x24 &
+        export DISPLAY=:99
+        ./build/Kaffeine
+
     - name: make
       run: make
 
