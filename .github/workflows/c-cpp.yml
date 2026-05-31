@@ -16,13 +16,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Install Qt
       run: |
         sudo dnf update
         sudo dnf install -y \
-          qt6-base-dev \
-          qt6-tools-dev \
-          qt6-tools-dev-tools
+          qt6-qtbase-devel \
+          qt6-qttools-devel
+
     - name: Install Dependencies
       run: |
         sudo dnf update
@@ -33,14 +34,19 @@ jobs:
           kf6-kcoreaddons-dev \
           kf6-i18n-dev \
           kf6-widgetsaddons-dev
+
     - name: Configure
       run: cmake -B build -S .
+
     - name: Build
       run: cmake --build build
+
     - name: make
       run: make
+
     - name: make check
       run: make check
+      
     - name: make distcheck
       run: make distcheck
 
