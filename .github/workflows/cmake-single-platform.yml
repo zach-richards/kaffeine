@@ -34,7 +34,7 @@ jobs:
           qt6-qttools-devel \
           extra-cmake-modules \
           kf6-kcoreaddons-devel \
-          kf6-ki18n-deve \
+          kf6-ki18n-devel \
           kf6-kwidgetsaddons-devel
 
     - name: Configure CMake
