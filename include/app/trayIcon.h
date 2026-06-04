@@ -10,7 +10,7 @@ public:
         item = new KStatusNotifierItem();
 
         item->setIconByPixmap(QPixmap(":/assets/coffee_dark_on.png"));
-        item->setToolTipTitle("Kaffeine on");
+        item->setToolTipTitle("Caffeine on");
         item->setToolTipSubTitle("Screen sleeping is disabled");
         item->setStatus(KStatusNotifierItem::Active);
     }

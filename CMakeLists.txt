@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-project(Kaffeine LANGUAGES CXX)
+project(Caffeine LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -10,20 +10,20 @@ find_package(Qt6 REQUIRED COMPONENTS Widgets Core)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 find_package(KF6StatusNotifierItem REQUIRED)
 
-add_executable(Kaffeine
+add_executable(Caffeine
     main.cpp
     src/app/app.cpp
     src/app/trayIcon.cpp
     src/warningHandler.cpp
 )
 
-target_link_libraries(Kaffeine PRIVATE
+target_link_libraries(Caffeine PRIVATE
     Qt6::Core
     Qt6::Widgets
     KF6::StatusNotifierItem
 )
 
-qt_add_resources(Kaffeine "assets"
+qt_add_resources(Caffeine "assets"
     PREFIX "/"
     FILES
         assets/coffee_dark_on.png

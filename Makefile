@@ -3,7 +3,7 @@
 all: build run
 
 build:
-	@echo "Building Kaffeine..."
+	@echo "Building Caffeine..."
 	@cmake -S . -B build
 	@cmake --build build
 	@echo "Build complete."
@@ -11,8 +11,8 @@ build:
 rebuild: clean build
 
 run:
-	@echo "Running Kaffeine..."
-	@./build/Kaffeine
+	@echo "Running Caffeine..."
+	@./build/Caffeine
 
 clean:
 	@echo "Cleaning build files..."

@@ -1,4 +1,4 @@
-# Kaffeine ☕
+# Caffeine ☕
 
 A KDE Desktop Environment port of Gnome's Caffeine extension. Currently working on a port specifically for Fedora but I will expand it to Debian Linux as well.
 

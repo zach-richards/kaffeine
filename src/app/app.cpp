@@ -3,6 +3,6 @@
 #include <QApplication>
 
 void initializeApp(QApplication &app){
-    app.setApplicationName("Kaffeine");
+    app.setApplicationName("Caffeine");
     app.setOrganizationName("KDE");
 }
