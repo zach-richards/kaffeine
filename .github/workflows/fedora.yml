@@ -40,7 +40,7 @@ jobs:
         run: |
           Xvfb :99 -screen 0 1024x768x24 &
           export DISPLAY=:99
-          ./build/Caffeine
+          ${{ github.workspace }}/build/Caffeine
 
       - name: Fedora CI
         working-directory: ${{ github.workspace }}/build
