@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: Fedora CI
 
 on:
   push:
@@ -8,46 +8,40 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     container:
       image: fedora:44
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Install Dependencies
-      run: |
-        sudo dnf update
-        sudo dnf install -y \
-          qt6-qtbase-devel \
-          qt6-qttools-devel \
-          extra-cmake-modules \
-          kf6-kcoreaddons-devel \
-          kf6-ki18n-devel \
-          kf6-kwidgetsaddons-devel \
-          kf6-kstatusnotifieritem-devel
+      - name: Install dependencies
+        run: |
+          dnf upgrade -y
+          dnf install -y \
+            cmake \
+            make \
+            qt6-qtbase-devel \
+            qt6-qttools-devel \
+            extra-cmake-modules \
+            kf6-kcoreaddons-devel \
+            kf6-ki18n-devel \
+            kf6-kwidgetsaddons-devel \
+            kf6-kstatusnotifieritem-devel \
+            xorg-x11-server-Xvfb
 
-    - name: Configure
-      run: cmake -B build -S .
+      - name: Configure
+        run: cmake -B ${{ github.workspace }}/build -S .
 
-    - name: Build
-      run: cmake --build build
+      - name: Build
+        run: cmake --build ${{ github.workspace }}/build
 
-    - name: Test visual
-      run: |
-        sudo dnf install xorg-x11-server-Xvfb
-        Xvfb :99 -screen 0 1024x768x24 &
-        export DISPLAY=:99
-        ./build/Kaffeine
+      - name: Test visual (Xvfb)
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 &
+          export DISPLAY=:99
+          ./build/Kaffeine
 
-    - name: make
-      run: make
-
-    - name: make check
-      run: make check
-
-    - name: make distcheck
-      run: make distcheck
-
+      - name: Fedora CI
+        working-directory: ${{ github.workspace }}/build
+        run: ctest --output-on-failure
