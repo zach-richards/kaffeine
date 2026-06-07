@@ -36,12 +36,18 @@ jobs:
       - name: Build
         run: cmake --build ${{ github.workspace }}/build
 
-      - name: Test visual (Xvfb)
+      - name: Start Xvfb
         run: |
           Xvfb :99 -screen 0 1024x768x24 &
-          export DISPLAY=:99
-          ${{ github.workspace }}/build/Caffeine
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+          # Wait until display is ready
+          for i in $(seq 1 10); do
+            xdpyinfo -display :99 >/dev/null 2>&1 && break
+            sleep 1
+          done
 
       - name: Fedora CI
+        env:
+          DISPLAY: :99
         working-directory: ${{ github.workspace }}/build
         run: ctest --output-on-failure
