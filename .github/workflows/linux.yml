@@ -1,4 +1,4 @@
-name: Linux KDE CI
+name: CI
 on:
   push:
     branches: [ "master" ]
@@ -7,15 +7,21 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-24.04  # KF6 packages require 24.04+
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
 
+      - name: Add KDE Neon repository (provides KF6 on Ubuntu 24.04)
+        run: |
+          sudo apt-get install -y curl ca-certificates
+          curl -fsSL https://archive.neon.kde.org/public.key | sudo gpg --dearmor -o /usr/share/keyrings/neon-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/neon-archive-keyring.gpg] http://archive.neon.kde.org/user noble main" \
+            | sudo tee /etc/apt/sources.list.d/neon.list
+          sudo apt-get update
+
       - name: Install dependencies
         run: |
-          sudo add-apt-repository universe  # KF6 packages are in universe
-          sudo apt-get update
           sudo apt-get install -y \
             cmake \
             make \
