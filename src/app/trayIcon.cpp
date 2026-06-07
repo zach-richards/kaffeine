@@ -1,45 +1,38 @@
-// tray_icon.cpp
-#include <KStatusNotifierItem>
+// src/app/tray_icon.cpp
+#include "../../include/app/trayIcon.h"
+#include <QPixmap>
 
-class TrayIcon {
-public:
-    TrayIcon() {
-        item = new KStatusNotifierItem();
-        item->setStandardActionsEnabled(false); // disable default click behavior
-        item->setAssociatedWindow(nullptr);      // no window to show/hide
+TrayIcon::TrayIcon() {
+    item = new KStatusNotifierItem();
+    item->setStandardActionsEnabled(false);
+    item->setAssociatedWindow(nullptr);
+    item->setIconByPixmap(QPixmap(":/assets/coffee_dark_on.png"));
+    item->setToolTipTitle("Caffeine on");
+    item->setToolTipSubTitle("Screen sleeping is disabled");
+    item->setStatus(KStatusNotifierItem::Active);
 
-        item->setIconByName("assets/coffee_dark_on.png");
+    QObject::connect(item, &KStatusNotifierItem::activateRequested,
+                     [this](bool active, const QPoint &pos) {
+                         onClicked();
+                     });
+}
+
+KStatusNotifierItem* TrayIcon::getItem() const {
+    return item;
+}
+
+void TrayIcon::onClicked() {
+    isOn = !isOn;
+
+    if (isOn) {
+        item->setIconByPixmap(QPixmap(":/assets/coffee_dark_on.png"));
         item->setToolTipTitle("Caffeine on");
         item->setToolTipSubTitle("Screen sleeping is disabled");
         item->setStatus(KStatusNotifierItem::Active);
-
-        QObject::connect(item, &KStatusNotifierItem::activateRequested,
-                         [this](bool active, const QPoint &pos) {
-                             onClicked();
-                         });
+    } else {
+        item->setIconByPixmap(QPixmap(":/assets/coffee_dark_off.png"));
+        item->setToolTipTitle("Caffeine off");
+        item->setToolTipSubTitle("Screen sleeping is enabled");
+        item->setStatus(KStatusNotifierItem::Passive);
     }
-
-    KStatusNotifierItem* getItem() const {
-        return item;
-    }
-
-private:
-    KStatusNotifierItem *item;
-    bool isOn = true;
-
-    void onClicked() {
-        isOn = !isOn;  // toggle first
-
-        if (isOn) {
-            item->setIconByName("assets/coffee_dark_on.png");
-            item->setToolTipTitle("Caffeine on");
-            item->setToolTipSubTitle("Screen sleeping is disabled");
-            item->setStatus(KStatusNotifierItem::Active);
-        } else {
-            item->setIconByName("assets/coffee_dark_off.png");
-            item->setToolTipTitle("Caffeine off");
-            item->setToolTipSubTitle("Screen sleeping is enabled");
-            item->setStatus(KStatusNotifierItem::Passive);
-        }
-    }
-};
+}
