@@ -1,4 +1,4 @@
-name: Fedora CI
+name: Linux KDE CI
 on:
   push:
     branches: [ "master" ]
@@ -8,35 +8,25 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: fedora:44
-      credentials:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    defaults:
-      run:
-        working-directory: /src
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: /src
 
       - name: Install dependencies
         run: |
-          dnf upgrade -y
-          dnf install -y \
+          sudo apt-get update
+          sudo apt-get install -y \
             cmake \
             make \
-            qt6-qtbase-devel \
-            qt6-qttools-devel \
+            qt6-base-dev \
+            qt6-tools-dev \
             extra-cmake-modules \
-            kf6-kcoreaddons-devel \
-            kf6-ki18n-devel \
-            kf6-kwidgetsaddons-devel \
-            kf6-kstatusnotifieritem-devel \
-            xorg-x11-server-Xvfb \
-            xorg-x11-utils
+            libkf6coreaddons-dev \
+            libkf6i18n-dev \
+            libkf6widgetsaddons-dev \
+            libkf6statusnotifieritem-dev \
+            xvfb \
+            x11-utils
 
       - name: Configure
         run: cmake -B build -S .
