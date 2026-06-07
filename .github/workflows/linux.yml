@@ -24,39 +24,41 @@ jobs:
             xvfb \
             x11-utils
 
-      - name: Install KF6 packages from Ubuntu mirror
+      - name: Install KF6 packages
         run: |
-          MIRROR="https://mirrors.egr.msu.edu/ubuntu/pool/universe/k"
-          
-          wget -q $MIRROR/kf6-kcoreaddons/libkf6coreaddons-data_6.6.0-0ubuntu1_all.deb
-          wget -q $MIRROR/kf6-kcoreaddons/libkf6coreaddons6_6.6.0-0ubuntu1_amd64.deb
-          wget -q $MIRROR/kf6-kcoreaddons/libkf6coreaddons-dev_6.6.0-0ubuntu1_amd64.deb
+          MIRROR="https://download.nus.edu.sg/mirror/ubuntu/pool/universe/k"
 
-          wget -q $MIRROR/kf6-ki18n/libkf6i18n-data_6.6.0-0ubuntu1_all.deb
-          wget -q $MIRROR/kf6-ki18n/libkf6i18n6_6.6.0-0ubuntu1_amd64.deb
-          wget -q $MIRROR/kf6-ki18n/libkf6i18n-dev_6.6.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-kcoreaddons/libkf6coreaddons-data_6.12.0-0ubuntu1_all.deb
+          wget -q $MIRROR/kf6-kcoreaddons/libkf6coreaddons6_6.12.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-kcoreaddons/libkf6coreaddons-dev_6.12.0-0ubuntu1_amd64.deb
 
-          wget -q $MIRROR/kf6-kwidgetsaddons/libkf6widgetsaddons-data_6.6.0-0ubuntu1_all.deb
-          wget -q $MIRROR/kf6-kwidgetsaddons/libkf6widgetsaddons6_6.6.0-0ubuntu1_amd64.deb
-          wget -q $MIRROR/kf6-kwidgetsaddons/libkf6widgetsaddons-dev_6.6.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-ki18n/libkf6i18n-data_6.12.0-0ubuntu1_all.deb
+          wget -q $MIRROR/kf6-ki18n/libkf6i18n6_6.12.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-ki18n/libkf6i18n-dev_6.12.0-0ubuntu1_amd64.deb
 
-          wget -q $MIRROR/kf6-kstatusnotifieritem/libkf6statusnotifieritem-data_6.6.0-0ubuntu1_all.deb
-          wget -q $MIRROR/kf6-kstatusnotifieritem/libkf6statusnotifieritem6_6.6.0-0ubuntu1_amd64.deb
-          wget -q $MIRROR/kf6-kstatusnotifieritem/libkf6statusnotifieritem-dev_6.6.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-kwidgetsaddons/libkf6widgetsaddons-data_6.12.0-0ubuntu1_all.deb
+          wget -q $MIRROR/kf6-kwidgetsaddons/libkf6widgetsaddons6_6.12.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-kwidgetsaddons/libkf6widgetsaddons-dev_6.12.0-0ubuntu1_amd64.deb
+
+          wget -q $MIRROR/kf6-kstatusnotifieritem/libkf6statusnotifieritem-data_6.12.0-0ubuntu1_all.deb
+          wget -q $MIRROR/kf6-kstatusnotifieritem/libkf6statusnotifieritem6_6.12.0-0ubuntu1_amd64.deb
+          wget -q $MIRROR/kf6-kstatusnotifieritem/libkf6statusnotifieritem-dev_6.12.0-0ubuntu1_amd64.deb
 
           sudo dpkg -i \
-            libkf6coreaddons-data_6.6.0-0ubuntu1_all.deb \
-            libkf6coreaddons6_6.6.0-0ubuntu1_amd64.deb \
-            libkf6coreaddons-dev_6.6.0-0ubuntu1_amd64.deb \
-            libkf6i18n-data_6.6.0-0ubuntu1_all.deb \
-            libkf6i18n6_6.6.0-0ubuntu1_amd64.deb \
-            libkf6i18n-dev_6.6.0-0ubuntu1_amd64.deb \
-            libkf6widgetsaddons-data_6.6.0-0ubuntu1_all.deb \
-            libkf6widgetsaddons6_6.6.0-0ubuntu1_amd64.deb \
-            libkf6widgetsaddons-dev_6.6.0-0ubuntu1_amd64.deb \
-            libkf6statusnotifieritem-data_6.6.0-0ubuntu1_all.deb \
-            libkf6statusnotifieritem6_6.6.0-0ubuntu1_amd64.deb \
-            libkf6statusnotifieritem-dev_6.6.0-0ubuntu1_amd64.deb
+            libkf6coreaddons-data_6.12.0-0ubuntu1_all.deb \
+            libkf6coreaddons6_6.12.0-0ubuntu1_amd64.deb \
+            libkf6coreaddons-dev_6.12.0-0ubuntu1_amd64.deb \
+            libkf6i18n-data_6.12.0-0ubuntu1_all.deb \
+            libkf6i18n6_6.12.0-0ubuntu1_amd64.deb \
+            libkf6i18n-dev_6.12.0-0ubuntu1_amd64.deb \
+            libkf6widgetsaddons-data_6.12.0-0ubuntu1_all.deb \
+            libkf6widgetsaddons6_6.12.0-0ubuntu1_amd64.deb \
+            libkf6widgetsaddons-dev_6.12.0-0ubuntu1_amd64.deb \
+            libkf6statusnotifieritem-data_6.12.0-0ubuntu1_all.deb \
+            libkf6statusnotifieritem6_6.12.0-0ubuntu1_amd64.deb \
+            libkf6statusnotifieritem-dev_6.12.0-0ubuntu1_amd64.deb
+
+          sudo apt-get install -f -y
 
       - name: Configure
         run: cmake -B build -S .
