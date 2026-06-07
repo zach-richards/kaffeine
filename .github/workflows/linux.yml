@@ -12,16 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Add KDE Neon repository (provides KF6 on Ubuntu 24.04)
-        run: |
-          sudo apt-get install -y curl ca-certificates
-          curl -fsSL https://archive.neon.kde.org/public.key | sudo gpg --dearmor -o /usr/share/keyrings/neon-archive-keyring.gpg
-          echo "deb [signed-by=/usr/share/keyrings/neon-archive-keyring.gpg] http://archive.neon.kde.org/user noble main" \
-            | sudo tee /etc/apt/sources.list.d/neon.list
-          sudo apt-get update
-
       - name: Install dependencies
         run: |
+          sudo add-apt-repository universe
+          sudo apt-get update
           sudo apt-get install -y \
             cmake \
             make \
@@ -31,9 +25,17 @@ jobs:
             libkf6coreaddons-dev \
             libkf6i18n-dev \
             libkf6widgetsaddons-dev \
-            libkf6statusnotifieritem-dev \
             xvfb \
             x11-utils
+
+      - name: Install libkf6statusnotifieritem-dev from Ubuntu mirror
+        run: |
+          wget https://mirrors.egr.msu.edu/ubuntu/pool/universe/k/kf6-kstatusnotifieritem/libkf6statusnotifieritem6_6.6.0-0ubuntu1_amd64.deb
+          wget https://mirrors.egr.msu.edu/ubuntu/pool/universe/k/kf6-kstatusnotifieritem/libkf6statusnotifieritem-dev_6.6.0-0ubuntu1_amd64.deb
+          wget https://mirrors.egr.msu.edu/ubuntu/pool/universe/k/kf6-kstatusnotifieritem/libkf6statusnotifieritem-data_6.6.0-0ubuntu1_all.deb
+          sudo dpkg -i libkf6statusnotifieritem-data_6.6.0-0ubuntu1_all.deb
+          sudo dpkg -i libkf6statusnotifieritem6_6.6.0-0ubuntu1_amd64.deb
+          sudo dpkg -i libkf6statusnotifieritem-dev_6.6.0-0ubuntu1_amd64.deb
 
       - name: Configure
         run: cmake -B build -S .
