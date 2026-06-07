@@ -1,4 +1,4 @@
-name: CI
+name: Fedora CI
 on:
   push:
     branches: [ "master" ]
@@ -32,7 +32,7 @@ jobs:
             kf6-kwidgetsaddons-devel \
             kf6-kstatusnotifieritem-devel \
             xorg-x11-server-Xvfb \
-            xorg-x11-utils
+            xdpyinfo
 
       - name: Configure
         run: cmake -B build -S .
