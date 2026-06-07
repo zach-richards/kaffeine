@@ -7,13 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # KF6 packages require 24.04+
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Install dependencies
         run: |
+          sudo add-apt-repository universe  # KF6 packages are in universe
           sudo apt-get update
           sudo apt-get install -y \
             cmake \
