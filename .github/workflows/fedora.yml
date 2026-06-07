@@ -1,5 +1,4 @@
 name: Fedora CI
-
 on:
   push:
     branches: [ "master" ]
@@ -11,9 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: fedora:44
+    defaults:
+      run:
+        working-directory: /src  # one consistent location
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: /src  # check out here explicitly
 
       - name: Install dependencies
         run: |
@@ -28,26 +32,25 @@ jobs:
             kf6-ki18n-devel \
             kf6-kwidgetsaddons-devel \
             kf6-kstatusnotifieritem-devel \
-            xorg-x11-server-Xvfb
+            xorg-x11-server-Xvfb \
+            xorg-x11-utils  # needed for xdpyinfo
 
       - name: Configure
-        run: cmake -B ${{ github.workspace }}/build -S .
+        run: cmake -B build -S .
 
       - name: Build
-        run: cmake --build ${{ github.workspace }}/build
+        run: cmake --build build
 
       - name: Start Xvfb
         run: |
           Xvfb :99 -screen 0 1024x768x24 &
           echo "DISPLAY=:99" >> $GITHUB_ENV
-          # Wait until display is ready
           for i in $(seq 1 10); do
             xdpyinfo -display :99 >/dev/null 2>&1 && break
             sleep 1
           done
 
-      - name: Fedora CI
+      - name: Test
         env:
           DISPLAY: :99
-        working-directory: ${{ github.workspace }}/build
-        run: ctest --output-on-failure
+        run: ctest --test-dir build --output-on-failure

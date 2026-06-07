@@ -13,7 +13,17 @@ int main() {
 
     initializeApp(app);
 
-    TrayIcon trayIcon;
+    TrayIcon tray;
+
+    QObject::connect(tray.getItem(), &KStatusNotifierItem::activateRequested,
+                     [](bool active, const QPoint &pos) {
+                         qDebug() << "activateRequested fired";
+                     });
+
+    QObject::connect(tray.getItem(), &KStatusNotifierItem::secondaryActivateRequested,
+                     [](const QPoint &pos) {
+                         qDebug() << "secondaryActivateRequested fired";
+                     });
 
     return app.exec();
 }

@@ -27,4 +27,5 @@ qt_add_resources(Caffeine "assets"
     PREFIX "/"
     FILES
         assets/coffee_dark_on.png
+        assets/coffee_dark_off.png
 )
