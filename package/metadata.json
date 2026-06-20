@@ -1,0 +1,17 @@
+{
+    "KPlugin": {
+        "Id": "org.kde.kaffeine",
+        "Name": "Kaffeine",
+        "Description": "A sleep inhibitor inspired by caffeine.",
+        "Icon": "starred-symbolic",
+        "License": "GPL-2.0-or-later",
+        "Version": "1.0.0",
+        "Authors": [
+            {
+                "Name": "Zachary Richards",
+                "Email": "zacharyryanrichards@gmail.com"
+            }
+        ]
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
