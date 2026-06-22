@@ -1,17 +1,19 @@
 {
     "KPlugin": {
-        "Id": "org.kde.kaffeine",
+        "Id": "com.kde.kaffeine",
         "Name": "Kaffeine",
-        "Description": "A sleep inhibitor inspired by caffeine.",
-        "Icon": "starred-symbolic",
-        "License": "GPL-2.0-or-later",
-        "Version": "1.0.0",
+        "Description": "Toggles Kaffeine on and off",
+        "Icon": "kaffeine",
+        "Version": "1.0",
+        "Website": "",
         "Authors": [
             {
                 "Name": "Zachary Richards",
                 "Email": "zacharyryanrichards@gmail.com"
             }
-        ]
+        ],
+        "License": "GPL-2.0-or-later",
+        "EnabledByDefault": true
     },
-    "X-Plasma-API-Minimum-Version": "6.0"
+    "KPackageStructure": "Plasma/Applet"
 }
