@@ -1,0 +1,55 @@
+name: Fedora CI
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Fedora 44
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:44
+      credentials:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          dnf upgrade -y
+          dnf install -y \
+            cmake \
+            make \
+            qt6-qtbase-devel \
+            qt6-qttools-devel \
+            extra-cmake-modules \
+            kf6-kcoreaddons-devel \
+            kf6-ki18n-devel \
+            kf6-kwidgetsaddons-devel \
+            kf6-kstatusnotifieritem-devel \
+            xorg-x11-server-Xvfb \
+            xdpyinfo
+
+      - name: Configure
+        run: cmake -B build -S .
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+          for i in $(seq 1 10); do
+            xdpyinfo -display :99 >/dev/null 2>&1 && break
+            sleep 1
+          done
+
+      - name: Test
+        env:
+          DISPLAY: :99
+        run: ctest --test-dir build --output-on-failure
