@@ -10,6 +10,19 @@ PlasmoidItem {
 
     property bool toggled: false
     property string cookie: ""
+        property bool isDark: Kirigami.Theme.backgroundColor.hslLightness < 0.5
+
+    function iconOn() {
+        return isDark
+            ? Qt.resolvedUrl("../icons/coffee-dark-on.svg")
+            : Qt.resolvedUrl("../icons/coffee-on.svg")
+    }
+
+    function iconOff() {
+        return isDark
+            ? Qt.resolvedUrl("../icons/coffee-dark-off.svg")
+            : Qt.resolvedUrl("../icons/coffee-off.svg")
+    }
 
     function inhibit() {
         executable.exec("dbus-send --session --print-reply --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Inhibit string:Kaffeine string:'User requested screen stay awake' 2>/dev/null")
@@ -49,9 +62,7 @@ PlasmoidItem {
             anchors.centerIn: parent
             width: parent.height
             height: parent.height
-            source: root.toggled
-                ? Qt.resolvedUrl("../icons/coffee-dark-on.svg")
-                : Qt.resolvedUrl("../icons/coffee-dark-off.svg")
+            source: root.toggled ? root.iconOn() : root.iconOff()
         }
         MouseArea {
             anchors.fill: parent
