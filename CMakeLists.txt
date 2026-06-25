@@ -5,6 +5,12 @@ find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
 find_package(Plasma REQUIRED)
 
-plasma_install_package(package ${PLUGIN_ID})
+set(PLUGIN_ID "org.kde.kaffeine")
+
+install(DIRECTORY package/
+    DESTINATION ${KDE_INSTALL_DATADIR}/plasma/plasmoids/${PLUGIN_ID}
+)
