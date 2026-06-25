@@ -1,19 +1,20 @@
 {
     "KPlugin": {
-        "Id": "com.kde.kaffeine",
+        "Id": "org.kde.kaffeine",
         "Name": "Kaffeine",
-        "Description": "Toggles Kaffeine on and off",
-        "Icon": "kaffeine",
-        "Version": "1.0",
-        "Website": "",
+        "Description": "Keep your screen awake.",
+        "Icon": "icons/coffee-dark-on.svg",
+        "Category": "System",
+        "License": "GPL-2.0-or-later",
         "Authors": [
             {
-                "Name": "Zachary Richards",
+                "Name": "Zach Richards",
                 "Email": "zacharyryanrichards@gmail.com"
             }
         ],
-        "License": "GPL-2.0-or-later",
-        "EnabledByDefault": true
+        "Version": "0.1.0",
+        "Website": ""
     },
-    "KPackageStructure": "Plasma/Applet"
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
 }
