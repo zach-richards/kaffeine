@@ -23,11 +23,14 @@
      stroke="none"
      stroke-width="1"
      fill="none"
-     fill-rule="evenodd">
+     fill-rule="evenodd"
+     transform="translate(0,-1.125005)"
+     style="fill:#ffffff">
     <g
        id="Dribbble-Light-Preview"
        transform="translate(-421,-5120)"
-       fill="#000000">
+       fill="#000000"
+       style="fill:#ffffff">
       <g
          id="icons"
          transform="translate(58.25,163.375)"

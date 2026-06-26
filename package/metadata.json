@@ -3,7 +3,7 @@
         "Id": "org.kde.kaffeine",
         "Name": "Kaffeine",
         "Description": "Keep your screen awake.",
-        "Icon": "contents/icons/coffee-dark-on.svg",
+        "Icon": "kaffeine-dark-on",
         "Category": "System",
         "License": "GPL-2.0-or-later",
         "Authors": [
