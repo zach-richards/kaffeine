@@ -55,7 +55,8 @@ PlasmoidItem {
             if (out.indexOf("uint32") !== -1) {
                 root.cookie = out.replace(/.*uint32\s+(\d+).*/, "$1")
             }
-            disconnectSource(source)
+            root.pending = false
+            disconnectSource(sourceName)
         }
     }
 
