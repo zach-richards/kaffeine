@@ -24,7 +24,11 @@ PlasmoidItem {
             : Qt.resolvedUrl("../icons/coffee-off.svg")
     }
 
+    property bool pending: false
+
     function inhibit() {
+        if (pending) return
+        pending = true
         executable.exec("dbus-send --session --print-reply --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Inhibit string:Kaffeine string:'User requested screen stay awake' 2>/dev/null")
     }
 
@@ -46,7 +50,7 @@ PlasmoidItem {
         function exec(cmd) {
             connectSource(cmd)
         }
-        onNewData: function(source, data) {
+        onNewData: function(sourceName, data) {
             var out = data["stdout"].trim()
             if (out.indexOf("uint32") !== -1) {
                 root.cookie = out.replace(/.*uint32\s+(\d+).*/, "$1")
@@ -87,16 +91,14 @@ PlasmoidItem {
                 Layout.alignment: Qt.AlignHCenter
                 width: 64
                 height: 64
-                source: root.toggled
-                    ? Qt.resolvedUrl("../icons/coffee-dark-on.svg")
-                    : Qt.resolvedUrl("../icons/coffee-dark-off.svg")
+                source: root.toggled ? root.iconOn() : root.iconOff()
             }
             PlasmaComponents.Label {
                 Layout.alignment: Qt.AlignHCenter
                 text: root.toggled ? "Screen awake" : "Screen sleep on"
-                font.pixelSize: 18
+                font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 1.2
                 font.bold: true
-                color: root.toggled ? Kirigami.Theme.textColor : "#c0392b"
+                color: root.toggled ? Kirigami.Theme.textColor : Kirigami.Theme.negativeTextColor
             }
             PlasmaComponents.Button {
                 Layout.alignment: Qt.AlignHCenter
