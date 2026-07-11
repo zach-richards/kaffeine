@@ -1,6 +1,8 @@
 PLUGIN_ID := org.kde.kaffeine
 
 dev-install:
+	@echo "Checking QML syntax..."
+	@qmllint package/contents/ui/main.qml
 	@echo "Installing $(PLUGIN_ID)..."
 	@kpackagetool6 --install package --type Plasma/Applet \
 		|| kpackagetool6 --upgrade package --type Plasma/Applet
@@ -14,6 +16,10 @@ dev-uninstall:
 	@plasmashell --replace &
 
 dev-reinstall: dev-uninstall dev-install
+
+dev-test:
+	@qmllint package/contents/ui/main.qml
+	@plasmoidviewer -a package
 
 plasmoid:
 	@echo "Turning the package into a plasmoid..."

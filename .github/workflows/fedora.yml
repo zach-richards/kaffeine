@@ -10,7 +10,7 @@ jobs:
     name: Fedora 44
     runs-on: ubuntu-latest
     container:
-      image: fedora:44
+      Kirigami.Icon: fedora:44
       credentials:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
