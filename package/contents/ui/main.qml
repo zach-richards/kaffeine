@@ -28,7 +28,8 @@ PlasmoidItem {
     function inhibit() {
         if (pending) return
         pending = true
-        executable.exec("dbus-send --session --print-reply --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Inhibit string:Kaffeine string:'User requested screen stay awake' 2>/dev/null")
+        console.log("calling inhibit")
+        executable.exec("dbus-send --session --print-reply --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Inhibit string:Kaffeine string:'User requested screen stay awake'")
     }
 
     function uninhibit() {
@@ -39,6 +40,7 @@ PlasmoidItem {
     }
 
     Component.onCompleted: {
+        console.log("KAFFEINE APPLET LOADED")
         root.toggled = false
     }
 
@@ -50,9 +52,14 @@ PlasmoidItem {
             connectSource(cmd)
         }
         onNewData: function(sourceName, data) {
+            console.log("stdout:", data["stdout"])
+            console.log("stderr:", data["stderr"])
             var out = data["stdout"].trim()
             if (out.indexOf("uint32") !== -1) {
                 root.cookie = out.replace(/.*uint32\s+(\d+).*/, "$1")
+                console.log("parsed cookie:", root.cookie)
+            } else {
+                console.log("no uint32 found in output — cookie NOT set")
             }
             root.pending = false
             disconnectSource(sourceName)
@@ -73,9 +80,9 @@ PlasmoidItem {
             source: root.toggled ? root.iconOn() : root.iconOff()
         }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
+        TapHandler {
+            onTapped: {
+                console.log("TAPHANDLER TAPPED")
                 root.toggled = !root.toggled
                 if (root.toggled) {
                     root.inhibit()
@@ -113,6 +120,7 @@ PlasmoidItem {
                 Layout.alignment: Qt.AlignHCenter
                 text: root.toggled ? "Allow sleep" : "Keep awake"
                 onClicked: {
+                    console.log("CLICK FIRED")
                     root.toggled = !root.toggled
                     if (root.toggled) {
                         root.inhibit()
