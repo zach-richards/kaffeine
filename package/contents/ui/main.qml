@@ -14,14 +14,14 @@ PlasmoidItem {
 
     function iconOn() {
         return isDark
-            ? Qt.resolvedUrl("../icons/coffee-dark-on.svg")
-            : Qt.resolvedUrl("../icons/coffee-on.svg")
+            ? Qt.resolvedUrl("../icons/kaffeine-dark-on.svg")
+            : Qt.resolvedUrl("../icons/kaffeine-on.svg")
     }
 
     function iconOff() {
         return isDark
-            ? Qt.resolvedUrl("../icons/coffee-dark-off.svg")
-            : Qt.resolvedUrl("../icons/coffee-off.svg")
+            ? Qt.resolvedUrl("../icons/kaffeine-dark-off.svg")
+            : Qt.resolvedUrl("../icons/kaffeine-off.svg")
     }
 
     property bool pending: false
@@ -62,18 +62,17 @@ PlasmoidItem {
 
     preferredRepresentation: compactRepresentation
 
-causeDiagnosed uninitialized parent dimensions causing component sizing failureDiagnosed uninitialized parent dimensions causing component sizing failureThe single most likely root cause, given your actual code: compactRepresentation's outer Item has no explicit size, and Plasma doesn't automatically size it for you.
-qmlcompactRepresentation: Item {
-    Kirigami.Icon {
+compactRepresentation: Item {
+    Image {
         anchors.centerIn: parent
         width: parent.height
         height: parent.height
-PlasmoidItem.compactRepresentation needs the Item to declare Layout.minimumWidth/Layout.minimumHeight (or Layout.preferredWidth/Height) so the panel's layout system knows how big to make it. You never set these. So on first layout pass, parent.height for your Kirigami.Icon can resolve to 0.
+PlasmoidItem.compactRepresentation needs the Item to declare Layout.minimumWidth/Layout.minimumHeight (or Layout.preferredWidth/Height) so the panel's layout system knows how big to make it. You never set these. So on first layout pass, parent.height for your Image can resolve to 0.
 That cascades directly into your warning:
 
 Item has no layout hints → panel gives it height: 0 (or an undefined/transient size) on the first paint.
-Kirigami.Icon.height and .width are both bound to that 0.
-Kirigami.Icon's internal Image/QQuickImage tries to build a scene graph node for a zero-size image.
+Image.height and .width are both bound to that 0.
+Image's internal Image/QQuickImage tries to build a scene graph node for a zero-size image.
 The SVG image provider either skips creating a texture or creates one with invalid dimensions.
 The scene graph calls updateSampledImage() expecting a texture, gets null back → the warning you saw.
 
@@ -85,7 +84,7 @@ qmlcompactRepresentation: Item {
     Layout.preferredWidth: height
     Layout.preferredHeight: parent ? parent.height : Kirigami.Units.iconSizes.small
 
-    Kirigami.Icon {
+    Image {
         anchors.fill: parent
         source: root.toggled ? root.iconOn() : root.iconOff()
     }
@@ -107,7 +106,7 @@ qmlcompactRepresentation: Item {
     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
     Layout.preferredHeight: Kirigami.Units.iconSizes.medium
 
-    Kirigami.Icon {
+    Image {
         anchors.fill: parent
         anchors.margins: Kirigami.Units.smallSpacing
         source: root.toggled ? root.iconOn() : root.iconOff()
@@ -136,7 +135,7 @@ compactRepresentation: Item {
         console.log("resolved icon path:", root.toggled ? root.iconOn() : root.iconOff())
     }
 
-    Kirigami.Icon {
+    Image {
         anchors.fill: parent
         anchors.margins: Kirigami.Units.smallSpacing
         source: root.toggled ? root.iconOn() : root.iconOff()
@@ -162,7 +161,7 @@ compactRepresentation: Item {
         ColumnLayout {
             anchors.centerIn: parent
             spacing: 16
-            Kirigami.Icon {
+            Image {
                 Layout.alignment: Qt.AlignHCenter
                 width: 64
                 height: 64
