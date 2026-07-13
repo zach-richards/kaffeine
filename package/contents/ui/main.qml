@@ -29,12 +29,12 @@ PlasmoidItem {
         if (pending) return
         pending = true
         console.log("calling inhibit")
-        executable.exec("dbus-send --session --print-reply --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Inhibit string:Kaffeine string:'User requested screen stay awake'")
+        executable.exec("qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.AddInhibition 1 'sleep-inhibit-plasmoid' 'Manual toggle'")
     }
 
     function uninhibit() {
         if (cookie !== "") {
-            executable.exec("dbus-send --session --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.UnInhibit uint32:" + cookie + " >/dev/null 2>&1")
+            executable.exec("qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.ReleaseInhibition " + cookie)
             cookie = ""
         }
     }
