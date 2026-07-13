@@ -1,5 +1,7 @@
 PLUGIN_ID := org.kde.kaffeine
 
+.PHONY: dev-install dev-uninstall dev-reinstall dev-test plasmoid clean
+
 dev-install:
 	@echo "Building $(PLUGIN_ID)..."
 	@cmake -B build -S . -DQT_MAJOR_VERSION=6
@@ -13,12 +15,13 @@ dev-install:
 dev-uninstall:
 	@echo "Uninstalling $(PLUGIN_ID)..."
 	@rm -rf build
-	@rm -rf ~/.local/share/plasma/plasmoids/org.kde.kaffeine
+	@rm -rf ~/.local/share/plasma/plasmoids/$(PLUGIN_ID)
 	@echo "Uninstallation complete."
 
 dev-reinstall: dev-uninstall dev-install
 	@echo "Restarting plasmashell..."
-	@kquitapp6 plasmashell 2>/dev/null; kstart6 plasmashell > /dev/null 2>&1 &
+	@kquitapp6 plasmashell 2>/dev/null; sleep 1; kstart6 plasmashell > /dev/null 2>&1 &
+	@plasmashell --replace > /dev/null 2>&1 &
 
 dev-test:
 	@qmllint package/contents/ui/main.qml
@@ -32,3 +35,9 @@ plasmoid:
 	else \
 		echo "Failed to create plasmoid."; \
 	fi
+
+clean:
+	@echo "Cleaning build artifacts..."
+	@rm -rf build
+	@rm -f kaffeine.plasmoid
+	@echo "Clean complete."
