@@ -13,29 +13,31 @@ PlasmoidItem {
     property bool isDark: Kirigami.Theme.backgroundColor.hslLightness < 0.5
     property bool pending: false
 
-    function iconOn() {
-        return isDark
-            ? Qt.resolvedUrl("../icons/kaffeine-dark-on.svg")
-            : Qt.resolvedUrl("../icons/kaffeine-on.svg")
-    }
+    readonly property url iconOn: isDark
+        ? Qt.resolvedUrl("../icons/kaffeine-dark-on.svg")
+        : Qt.resolvedUrl("../icons/kaffeine-on.svg")
 
-    function iconOff() {
-        return isDark
-            ? Qt.resolvedUrl("../icons/kaffeine-dark-off.svg")
-            : Qt.resolvedUrl("../icons/kaffeine-off.svg")
-    }
+    readonly property url iconOff: isDark
+        ? Qt.resolvedUrl("../icons/kaffeine-dark-off.svg")
+        : Qt.resolvedUrl("../icons/kaffeine-off.svg")
 
     function inhibit() {
+        console.log("running test")
+        executable.exec("echo hello")
+    }
+
+    /*function inhibit() {
         if (pending) return
         pending = true
         console.log("calling inhibit")
-        executable.exec("qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.AddInhibition 1 'sleep-inhibit-plasmoid' 'Manual toggle'")
-    }
+        executable.exec("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.AddInhibition 1 'sleep-inhibit-plasmoid' 'Manual toggle'")
+    }*/
 
     function uninhibit() {
+        if (pending) return
         if (cookie !== "") {
-            executable.exec("qdbus6 org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.ReleaseInhibition " + cookie)
-            cookie = ""
+            pending = true
+            executable.exec("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.ReleaseInhibition " + cookie)
         }
     }
 
@@ -55,12 +57,23 @@ PlasmoidItem {
             console.log("stdout:", data["stdout"])
             console.log("stderr:", data["stderr"])
             var out = data["stdout"].trim()
-            if (out.indexOf("uint32") !== -1) {
-                root.cookie = out.replace(/.*uint32\s+(\d+).*/, "$1")
-                console.log("parsed cookie:", root.cookie)
+
+            if (root.toggled && root.cookie === "") {
+                // This was an inhibit call awaiting a cookie
+                var match = out.match(/\d+/)
+                if (match) {
+                    root.cookie = match[0]
+                    console.log("parsed cookie:", root.cookie)
+                } else {
+                    console.log("No cookie returned")
+                    root.toggled = false
+                }
             } else {
-                console.log("no uint32 found in output — cookie NOT set")
+                // This was a release call
+                console.log("inhibition released")
+                root.cookie = ""
             }
+
             root.pending = false
             disconnectSource(sourceName)
         }
@@ -77,10 +90,12 @@ PlasmoidItem {
         Kirigami.Icon {
             anchors.fill: parent
             anchors.margins: Kirigami.Units.smallSpacing
-            source: root.toggled ? root.iconOn() : root.iconOff()
+            source: root.toggled ? root.iconOn : root.iconOff
+            opacity: root.pending ? 0.5 : 1.0
         }
 
         TapHandler {
+            enabled: !root.pending
             onTapped: {
                 console.log("TAPHANDLER TAPPED")
                 root.toggled = !root.toggled
@@ -94,8 +109,8 @@ PlasmoidItem {
     }
 
     fullRepresentation: Item {
-        width: 300
-        height: 200
+        Layout.preferredWidth: 300
+        Layout.preferredHeight: 200
 
         ColumnLayout {
             anchors.centerIn: parent
@@ -105,7 +120,8 @@ PlasmoidItem {
                 Layout.alignment: Qt.AlignHCenter
                 width: 64
                 height: 64
-                source: root.toggled ? root.iconOn() : root.iconOff()
+                source: root.toggled ? root.iconOn : root.iconOff
+                opacity: root.pending ? 0.5 : 1.0
             }
 
             PlasmaComponents.Label {
@@ -118,6 +134,7 @@ PlasmoidItem {
 
             PlasmaComponents.Button {
                 Layout.alignment: Qt.AlignHCenter
+                enabled: !root.pending
                 text: root.toggled ? "Allow sleep" : "Keep awake"
                 onClicked: {
                     console.log("CLICK FIRED")

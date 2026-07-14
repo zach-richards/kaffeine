@@ -23,9 +23,9 @@ dev-reinstall: dev-uninstall dev-install
 	@kquitapp6 plasmashell 2>/dev/null; sleep 1; kstart6 plasmashell > /dev/null 2>&1 &
 	@plasmashell --replace > /dev/null 2>&1 &
 
-dev-test:
-	@qmllint package/contents/ui/main.qml
-	@plasmoidviewer -a package
+dev-test: dev-reinstall
+	@echo "Launching $(PLUGIN_ID) in plasmoidviewer..."
+	@QT_LOGGING_RULES="qml=true" plasmoidviewer -a org.kde.kaffeine
 
 plasmoid:
 	@echo "Turning the package into a plasmoid..."
