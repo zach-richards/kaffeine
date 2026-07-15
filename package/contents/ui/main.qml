@@ -4,7 +4,6 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.plasma5support 2.0 as P5Support
-import org.kde.plasma.private.dbus 1.0
 
 PlasmoidItem {
     id: root
@@ -22,23 +21,56 @@ PlasmoidItem {
         ? Qt.resolvedUrl("../icons/kaffeine-dark-off.svg")
         : Qt.resolvedUrl("../icons/kaffeine-off.svg")
 
+    property bool inhibiting: false
+    property var inhibitPid: -1
 
-    DBusInterface {
-        id: policyAgent
-        service: "org.kde.Solid.PowerManagement.PolicyAgent"
-        path: "/org/kde/Solid/PowerManagement/PolicyAgent"
-        iface: "org.kde.Solid.PowerManagement.PolicyAgent"
+    P5Support.DataSource {
+        id: executable
+        engine: "executable"
+        connectedSources: []
+
+        onNewData: (sourceName, data) => {
+            var exitCode = data["exit code"]
+            var exitStatus = data["exit status"]
+            var stdout = data["stdout"]
+            var stderr = data["stderr"]
+            console.log("stdout:", stdout, "stderr:", stderr)
+            disconnectSource(sourceName)
+        }
+
+        function exec(cmd) {
+            connectSource(cmd)
+        }
     }
 
-    function inhibit() {
-        policyAgent.AddInhibition(1, "kaffeine", "Manual toggle", function(cookie) {
-            inhibitCookie = cookie
-            console.log("Inhibiting with cookie:", cookie)
-        })
+    // Track PID separately since DataSource doesn't give it to us directly
+    P5Support.DataSource {
+        id: pidSource
+        engine: "executable"
+        connectedSources: []
+        onNewData: (sourceName, data) => {
+            var stdout = data["stdout"].toString().trim()
+            inhibitPid = parseInt(stdout)
+            console.log("inhibit script pid:", inhibitPid)
+            disconnectSource(sourceName)
+        }
     }
 
-    function uninhibit() {
-        policyAgent.ReleaseInhibition(inhibitCookie)
+    function startInhibit() {
+        if (inhibiting) return
+        var scriptPath = Qt.resolvedUrl("../scripts/inhibit.py").toString().replace("file://", "")
+        // Launch in background, capture PID
+        pidSource.connectSource(
+            "sh -c 'python3 " + scriptPath + " kaffeine-toggle > /tmp/kaffeine-inhibit.log 2>&1 & echo $!'"
+        )
+        inhibiting = true
+    }
+
+    function stopInhibit() {
+        if (!inhibiting || inhibitPid <= 0) return
+        executable.exec("kill " + inhibitPid)
+        inhibiting = false
+        inhibitPid = -1
     }
 
     Component.onCompleted: {
@@ -46,37 +78,8 @@ PlasmoidItem {
         root.toggled = false
     }
 
-    P5Support.DataSource {
-        id: executable
-        engine: "executable"
-        connectedSources: []
-        function exec(cmd) {
-            connectSource(cmd)
-        }
-        onNewData: function(sourceName, data) {
-            console.log("stdout:", data["stdout"])
-            console.log("stderr:", data["stderr"])
-            var out = data["stdout"].trim()
-
-            if (root.toggled && root.cookie === "") {
-                // This was an inhibit call awaiting a cookie
-                var match = out.match(/\d+/)
-                if (match) {
-                    root.cookie = match[0]
-                    console.log("parsed cookie:", root.cookie)
-                } else {
-                    console.log("No cookie returned")
-                    root.toggled = false
-                }
-            } else {
-                // This was a release call
-                console.log("inhibition released")
-                root.cookie = ""
-            }
-
-            root.pending = false
-            disconnectSource(sourceName)
-        }
+    Component.onDestruction: {
+        stopInhibit()
     }
 
     preferredRepresentation: compactRepresentation
@@ -100,9 +103,9 @@ PlasmoidItem {
                 console.log("TAPHANDLER TAPPED")
                 root.toggled = !root.toggled
                 if (root.toggled) {
-                    root.inhibit()
+                    root.startInhibit()
                 } else {
-                    root.uninhibit()
+                    root.stopInhibit()
                 }
             }
         }
@@ -140,9 +143,9 @@ PlasmoidItem {
                     console.log("CLICK FIRED")
                     root.toggled = !root.toggled
                     if (root.toggled) {
-                        root.inhibit()
+                        root.startInhibit()
                     } else {
-                        root.uninhibit()
+                        root.stopInhibit()
                     }
                 }
             }
