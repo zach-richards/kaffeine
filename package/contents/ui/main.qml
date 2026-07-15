@@ -4,6 +4,7 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.plasma5support 2.0 as P5Support
+import org.kde.plasma.private.dbus 1.0
 
 PlasmoidItem {
     id: root
@@ -21,24 +22,23 @@ PlasmoidItem {
         ? Qt.resolvedUrl("../icons/kaffeine-dark-off.svg")
         : Qt.resolvedUrl("../icons/kaffeine-off.svg")
 
-    function inhibit() {
-        console.log("running test")
-        executable.exec("echo hello")
+
+    DBusInterface {
+        id: policyAgent
+        service: "org.kde.Solid.PowerManagement.PolicyAgent"
+        path: "/org/kde/Solid/PowerManagement/PolicyAgent"
+        iface: "org.kde.Solid.PowerManagement.PolicyAgent"
     }
 
-    /*function inhibit() {
-        if (pending) return
-        pending = true
-        console.log("calling inhibit")
-        executable.exec("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.AddInhibition 1 'sleep-inhibit-plasmoid' 'Manual toggle'")
-    }*/
+    function inhibit() {
+        policyAgent.AddInhibition(1, "kaffeine", "Manual toggle", function(cookie) {
+            inhibitCookie = cookie
+            console.log("Inhibiting with cookie:", cookie)
+        })
+    }
 
     function uninhibit() {
-        if (pending) return
-        if (cookie !== "") {
-            pending = true
-            executable.exec("qdbus org.kde.Solid.PowerManagement /org/kde/Solid/PowerManagement/PolicyAgent org.kde.Solid.PowerManagement.PolicyAgent.ReleaseInhibition " + cookie)
-        }
+        policyAgent.ReleaseInhibition(inhibitCookie)
     }
 
     Component.onCompleted: {
