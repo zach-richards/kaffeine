@@ -1,19 +1,31 @@
 PLUGIN_ID := org.kde.kaffeine
 
+.PHONY: dev-install dev-uninstall dev-reinstall dev-test plasmoid clean
+
 dev-install:
+	@echo "Building $(PLUGIN_ID)..."
+	@cmake -B build -S . -DQT_MAJOR_VERSION=6
+	@echo "Checking QML syntax..."
+	@qmllint package/contents/ui/main.qml
 	@echo "Installing $(PLUGIN_ID)..."
 	@kpackagetool6 --install package --type Plasma/Applet \
 		|| kpackagetool6 --upgrade package --type Plasma/Applet
 	@echo "Installation complete."
 
-dev-uninstall:
+dev-uninstall: clean
 	@echo "Uninstalling $(PLUGIN_ID)..."
-	@rm -rf ~/.local/share/plasma/plasmoids/org.kde.kaffeine
+	@rm -rf build
+	@rm -rf ~/.local/share/plasma/plasmoids/$(PLUGIN_ID)
 	@echo "Uninstallation complete."
-	@echo "Restarting plasmashell..."
-	@plasmashell --replace &
 
 dev-reinstall: dev-uninstall dev-install
+	@echo "Restarting plasmashell..."
+	@kquitapp6 plasmashell 2>/dev/null; sleep 1; kstart6 plasmashell > /dev/null 2>&1 &
+	@plasmashell --replace > /dev/null 2>&1 &
+
+dev-test: dev-reinstall
+	@echo "Launching $(PLUGIN_ID) in plasmoidviewer..."
+	@QT_LOGGING_RULES="qml=true" plasmoidviewer -a org.kde.kaffeine
 
 plasmoid:
 	@echo "Turning the package into a plasmoid..."
@@ -23,3 +35,14 @@ plasmoid:
 	else \
 		echo "Failed to create plasmoid."; \
 	fi
+
+inhibit-list:
+	@echo "Listing inhibitors..."
+	@qdbus --literal org.kde.Solid.PowerManagement.PolicyAgent \
+	/org/kde/Solid/PowerManagement/PolicyAgent ActiveInhibitions
+
+clean:
+	@echo "Cleaning build artifacts..."
+	@rm -rf build
+	@rm -f kaffeine.plasmoid
+	@echo "Clean complete."

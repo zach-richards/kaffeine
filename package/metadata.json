@@ -1,5 +1,4 @@
 {
-{
     "KPlugin": {
         "Id": "org.kde.kaffeine",
         "Name": "Kaffeine",
@@ -13,7 +12,7 @@
                 "Email": "zacharyryanrichards@gmail.com"
             }
         ],
-        "Version": "0.1.0",
+        "Version": "0.1.1",
         "Website": ""
     },
     "KPackageStructure": "Plasma/Applet",

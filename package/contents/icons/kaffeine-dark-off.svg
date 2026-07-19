@@ -1,54 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
 
 <svg
-   width="1000"
-   height="1000"
-   viewBox="0 0 22.5 22.5"
+   width="698.24481"
+   height="668.70477"
+   viewBox="0 0 15.710509 15.045857"
    version="1.1"
+   fill="#000000"
+   stroke="#000000"
    id="svg1"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <title
-     id="title1">coffee [#689]</title>
-  <desc
-     id="desc1">Created with Sketch.</desc>
+   xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs1" />
+     id="defs2" />
   <g
-     id="Page-1"
-     stroke="none"
-     stroke-width="1"
-     fill="none"
-     fill-rule="evenodd"
-     transform="translate(0,-1.125005)"
-     style="fill:#ffffff">
+     id="SVGRepo_iconCarrier"
+     transform="translate(-3.4108242,-4.639732)"
+     style="fill:#ffffff;stroke:none">
+    <title
+       id="title1">coffee [#689]</title>
+    <desc
+       id="desc1">Created with Sketch.</desc>
+    <defs
+       id="defs1" />
     <g
-       id="Dribbble-Light-Preview"
-       transform="translate(-421,-5120)"
-       fill="#000000"
-       style="fill:#ffffff">
+       id="Page-1"
+       stroke="none"
+       stroke-width="1"
+       fill="none"
+       fill-rule="evenodd"
+       style="fill:#ffffff;stroke:none">
       <g
-         id="icons"
-         transform="translate(58.25,163.375)"
-         style="fill:#ffffff">
+         id="Dribbble-Light-Preview"
+         transform="matrix(0.87499988,0,0,0.87499988,-366.96868,-4478.5223)"
+         fill="#ffffff"
+         style="fill:#ffffff;stroke:none">
+        <g
+           id="icons"
+           transform="translate(56,160)"
+           style="fill:#ffffff;stroke:none" />
         <path
-           d="m 379.19718,4968.9998 h -2.02817 v 2.9999 h 2.02817 c 2.36586,0 2.36586,-2.9999 0,-2.9999 z m -4.05633,0 h -7.0986 c -0.55977,0 -1.01408,0.448 -1.01408,1 v 1.828 c 0,2.0889 1.54851,3.9549 3.6578,4.1529 2.41961,0.2279 4.45488,-1.642 4.45488,-3.981 z m 4.05633,4.9999 h -2.38208 c -0.91166,2.5389 -3.49859,4.2959 -6.45566,3.9589 -3.10006,-0.354 -5.35944,-3.0909 -5.35944,-6.1689 v -2.7899 c 0,-1.105 0.90761,-2 2.02817,-2 h 10.14084 2.02817 c 5.07043,0 5.07043,6.9999 0,6.9999 z"
            id="coffee-[#689]"
-           style="fill:#ffffff" />
+           d="m 425.13516,5130.0151 c -1.13732,0 -1.84424,0.7003 -1.84424,1.8162 v 2.8533 c 0,3.0368 2.22738,5.7357 5.27897,6.0842 2.92117,0.3329 5.4645,-1.4011 6.36193,-3.9003 0.0326,-0.091 0.11903,-0.1518 0.21579,-0.1518 h 2.43768 c 2.48813,0 3.6605,-1.6713 3.6605,-3.3509 0,-1.6796 -1.17237,-3.3507 -3.6605,-3.3507 h -2.07402 z m 1.03901,1.5865 h 7.26107 c 0.12704,-3e-4 0.23011,0.1026 0.22978,0.2297 v 3.0691 c 10e-6,2.5259 -2.20567,4.5451 -4.80941,4.2998 -2.2808,-0.2141 -3.95023,-2.2254 -3.95023,-4.4757 v -1.8702 c 0,-1.1427 0.0994,-1.2527 1.26879,-1.2527 z m 9.3371,0 h 2.07402 c 1.30701,0 2.04404,0.8764 2.04404,1.7642 0,0.8878 -0.73703,1.7644 -2.04404,1.7644 h -2.07402 c -0.12704,3e-4 -0.23012,-0.1028 -0.22979,-0.2298 v -3.0691 c -3.3e-4,-0.1271 0.10275,-0.23 0.22979,-0.2297 z"
+           style="fill:#ffffff;stroke:none;stroke-width:0.78919;stroke-dasharray:none" />
       </g>
     </g>
   </g>
-  <metadata
-     id="metadata1">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:title>coffee [#689]</dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
 </svg>
