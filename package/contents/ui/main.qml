@@ -22,19 +22,16 @@ PlasmoidItem {
         : Qt.resolvedUrl("../icons/kaffeine-off.svg")
 
     property bool inhibiting: false
-    property var inhibitPid: -1
+    property int inhibitPid: -1
 
+    // General-purpose one-off command runner (logging only)
     P5Support.DataSource {
         id: executable
         engine: "executable"
         connectedSources: []
 
         onNewData: (sourceName, data) => {
-            var exitCode = data["exit code"]
-            var exitStatus = data["exit status"]
-            var stdout = data["stdout"]
-            var stderr = data["stderr"]
-            console.log("stdout:", stdout, "stderr:", stderr)
+            console.log("stdout:", data["stdout"], "stderr:", data["stderr"])
             disconnectSource(sourceName)
         }
 
@@ -43,32 +40,48 @@ PlasmoidItem {
         }
     }
 
-    // Track PID separately since DataSource doesn't give it to us directly
+    // Captures the PID of the backgrounded systemd-inhibit process
     P5Support.DataSource {
         id: pidSource
         engine: "executable"
         connectedSources: []
+
         onNewData: (sourceName, data) => {
             var stdout = data["stdout"].toString().trim()
-            inhibitPid = parseInt(stdout)
-            console.log("inhibit script pid:", inhibitPid)
+            var pid = parseInt(stdout)
+            if (!isNaN(pid)) {
+                inhibitPid = pid
+                console.log("inhibit script pid:", inhibitPid)
+            } else {
+                console.log("failed to parse pid from:", stdout)
+            }
+            disconnectSource(sourceName)
+        }
+    }
+
+    // Fires the kill command
+    P5Support.DataSource {
+        id: killSource
+        engine: "executable"
+        connectedSources: []
+
+        onNewData: (sourceName, data) => {
+            console.log("kill result:", data["stdout"], data["stderr"])
             disconnectSource(sourceName)
         }
     }
 
     function startInhibit() {
         if (inhibiting) return
-        var scriptPath = Qt.resolvedUrl("../scripts/inhibit.py").toString().replace("file://", "")
-        // Launch in background, capture PID
         pidSource.connectSource(
-            "sh -c 'python3 " + scriptPath + " kaffeine-toggle > /tmp/kaffeine-inhibit.log 2>&1 & echo $!'"
+            'sh -c \'systemd-inhibit --what=handle-lid-switch:sleep:idle --who="kaffeine" --why="Kaffeine toggled" sleep infinity & echo $!\''
         )
         inhibiting = true
     }
 
     function stopInhibit() {
         if (!inhibiting || inhibitPid <= 0) return
-        executable.exec("kill " + inhibitPid)
+        killSource.connectSource('kill -TERM ' + inhibitPid)
         inhibiting = false
         inhibitPid = -1
     }

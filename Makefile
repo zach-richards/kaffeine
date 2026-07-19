@@ -12,7 +12,7 @@ dev-install:
 		|| kpackagetool6 --upgrade package --type Plasma/Applet
 	@echo "Installation complete."
 
-dev-uninstall:
+dev-uninstall: clean
 	@echo "Uninstalling $(PLUGIN_ID)..."
 	@rm -rf build
 	@rm -rf ~/.local/share/plasma/plasmoids/$(PLUGIN_ID)
@@ -35,6 +35,11 @@ plasmoid:
 	else \
 		echo "Failed to create plasmoid."; \
 	fi
+
+inhibit-list:
+	@echo "Listing inhibitors..."
+	@qdbus --literal org.kde.Solid.PowerManagement.PolicyAgent \
+	/org/kde/Solid/PowerManagement/PolicyAgent ActiveInhibitions
 
 clean:
 	@echo "Cleaning build artifacts..."
